@@ -1,0 +1,86 @@
+
+    <div class="container">
+        <div class="left-column">
+            <div class="bag">
+                <div class="checkout-card">
+                    <h3>Checkout</h3>
+                    <form id="checkout-form" [formGroup]="checkoutform">
+                        <label for="name">Name</label>
+                        <input [(ngModel)]="info.name" type="text" id="name" name="name" required formControlName="name">
+                    
+                        <label for="email">Email</label>
+                        <input [(ngModel)]="info.email" type="email" id="email" name="email" required formControlName="email">
+            
+                        <label for="address">Address</label>
+                        <input [(ngModel)]="info.address" type="text" id="address" name="address" required formControlName="address">
+            
+                        <label for="city">City</label>
+                        <input [(ngModel)]="info.city" type="text" id="city" name="city" required formControlName="city">
+            
+                        <label for="state">State</label>
+                        <input [(ngModel)]="info.state" type="text" id="state" name="state" required formControlName="state">
+            
+                        <label for="zip">Zip Code</label>
+                        <input [(ngModel)]="info.zip" type="number" id="zip" name="zip" required min="10000" max="99999" title="Please enter a valid 5-digit ZIP code" formControlName="zip">
+            
+                        <label for="cardname">Name on Card</label>
+                        <input [(ngModel)]="info.nameCard" type="text" id="cardname" name="cardname" required formControlName="nameCard">
+            
+                        <label for="cardnumber">Card Number</label>
+                        <input [(ngModel)]="info.cardNum" type="number" id="cardnumber" name="cardnumber" required min="1000000000000000" max="9999999999999999" title="Please enter a valid 16-digit card number" formControlName="cardNum">
+            
+                        <label for="expDate">Expiration Date</label>
+                        <input [(ngModel)]="info.expDate" type="month" id="expDate" name="expDate" required formControlName="expDate">
+            
+                        <label for="cvv">CVV</label>
+                        <input [(ngModel)]="info.cvv" type="number" id="cvv" name="cvv" required min="100" max="9999" title="Please enter a valid 3 or 4-digit CVV" formControlName="cvv">
+            
+                        <!-- <label for="productList">Products</label>
+                        <div id="productList">
+                                <p *ngFor="let product of cartlist">{{ product.title }}, Quantity: {{ product.quantity }}</p>   
+                        </div> -->
+            
+                        
+            
+                        <p *ngIf="!checkoutform.valid">Please fill all parts</p>
+                    </form>
+                    <div id="notification" class="hidden" *ngIf="orderFlag">Order placed successfully! Redirecting to the landing page...</div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="right-column" >
+            <div class="summary">
+                <h2>Bag</h2>
+                <div *ngFor="let item of cartlist">
+                    <img [src]="item.currentImage" style="width: 80%;">
+                    
+                    <div class="cost-row">
+                        <span>{{ item.title }} ({{ item.size }}) x {{item.quantity}}</span>
+                        <span> ${{ item.totalPrice }}</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="cost-details">
+                    <div class="cost-row">
+                        <span>Subtotal</span>
+                        <span>${{ calculateTotalPrice() }}</span>
+                    </div>
+                    <div class="cost-row">
+                        <span>Discount</span>
+                        <span>20%</span>
+                    </div>
+                    <div class="cost-row">
+                        <span>Estimated Tax</span>
+                        <span>${{calculateTax()}}</span>
+                    </div>
+                    <div class="cost-row total">
+                        <span>Total</span>
+                        <span>${{finalPrice()}}</span>
+                    </div>
+                </div>
+                <button (click)="checkout()" [disabled]="!checkoutform.valid">Place Order</button>
+            </div>
+        </div>
+    </div>
+

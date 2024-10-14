@@ -1,0 +1,51 @@
+<div class="checkout-container">
+    <div class="left-half">
+        <div>
+            <h3>User Table</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>name</th>
+                            <th>email</th>
+                            <th>password</th>
+                            <th>usertype</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of Userlist">
+                            <td>{{ user.name }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.password }}</td>
+                            <td>{{ user.usertype }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <div class="right-half">
+        <div class="checkout-card" style="margin-top: 100px;">
+            <h3>Enter User Information</h3>
+            <form id="checkout-form" [formGroup]="userform">
+                <label for="name">Name</label>
+                <input [(ngModel)]="user.name" type="text" id="name" name="name" required formControlName="name">
+
+                <label for="email">Email</label>
+                <input [(ngModel)]="user.email" type="text" id="email" name="email" required formControlName="email">
+
+                <label for="password">Password</label>
+                <input [(ngModel)]="user.password" type="text" id="password" name="password" required formControlName="password">
+
+                <label for="usertype">User Type</label>
+                <input [(ngModel)]="user.usertype" type="text" id="usertype" name="usertype" required formControlName="usertype">
+
+                
+                <p *ngIf="!userform.valid">Please fill all parts</p>
+                <button (click)="addUser()" [disabled]="!userform.valid">Add User</button>
+            </form>
+        </div>
+    </div>
+</div>
+

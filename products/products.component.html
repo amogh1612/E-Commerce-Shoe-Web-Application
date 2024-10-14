@@ -1,0 +1,156 @@
+<div style="width:90%; margin:auto">
+  <h3 style="margin-top: 1%; padding-left: 1%;">Products</h3>
+  <div class="row">
+    <div class="col-md-3" style="margin-top: 1%; padding-left: 0%; padding-right: 10%">
+      <div class="filter-sidebar">
+        <div class="filter-section">
+          <div class="filter-category">
+            <h5>Size:</h5>
+            <select [(ngModel)]="selectedSize">
+              <option value="">Select size</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+            </select>
+          </div>
+          <div class="filter-category">
+            <h5 style="margin-top: 50px">Price:</h5>
+            <div class="price-range">
+              <span id="price-min">$1</span>
+              <span>-------</span>
+              <span id="price-max">$700</span>
+            </div>
+            <input
+              type="range"
+              id="price-slider"
+              min="0"
+              max="700"
+              step="1"
+              class="price-slider"
+              [(ngModel)]="selectedPrice"
+            />
+            <div class="price-output">
+              <span>Selected Price: $<span id="selected-price">{{ selectedPrice }}</span></span>
+            </div>
+          </div>
+          <div class="filter-category">
+            <h5 style="margin-top: 50px">Brands:</h5>
+            <ul>
+              <li *ngFor="let brand of brandlist">
+                <input
+                  type="checkbox"
+                  (change)="selectbrand(brand)"
+                  
+                /> {{ brand }}
+              </li>
+              
+              <!-- <li>
+                <input
+                  type="checkbox"
+                  [(ngModel)]="selectedBrands['Adidas Originals']"
+                  checked
+                /> Adidas Originals
+              </li>
+              <li>
+                <input
+                  type="checkbox"
+                  [(ngModel)]="selectedBrands['Reebok']"
+                /> Reebok
+              </li>
+              <li>
+                <input
+                  type="checkbox"
+                  [(ngModel)]="selectedBrands['Nike']"
+                /> Nike
+              </li>
+              <li>
+                <input
+                  type="checkbox"
+                  [(ngModel)]="selectedBrands['Air Jordan']"
+                /> Air Jordan
+              </li> -->
+            </ul>
+          </div>
+          <div>
+            <h5 style="margin-top: 50px">Featured:</h5>
+            <ul>
+              <li>
+                <input
+                  type="checkbox"
+                 
+                /> 
+              </li>
+            </ul>
+          </div>
+          <a class="viewBtn" (click)="filter()" style="background-color: white !important; padding-top: 10px !important; color: black !important; text-decoration: none;">Filter</a>
+
+          <div>
+            <h5 style="margin-top: 50px">Cart</h5>
+            <div *ngFor="let item of cartlist">
+              <p>{{ item.title }} ({{ item.size }}) ${{ item.totalPrice }}</p>
+            </div>
+            <h5 class="totalTag">Total: ${{ calculateTotalPrice() }}</h5>
+          </div>
+        </div>
+      </div>
+    
+      
+      <script>
+        const priceSlider = document.getElementById('price-slider');
+        const selectedPrice = document.getElementById('selected-price');
+      
+        priceSlider.addEventListener('input', function() {
+          const value = this.value;
+          selectedPrice.textContent = value;
+        });
+      </script>
+      
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let product of filteredlist">
+          <div class="card" style="text-align: center; min-height: 400px; padding: 10px; margin: 5px"
+               (mouseenter)="onMouseEnter(product)"
+               (mouseleave)="onMouseLeave(product)">
+            <div *ngIf="product.images.length > 0">
+              <img [src]="product.currentImage" style="width: 80%;">
+            </div>
+            <h4>{{product.title}}</h4>
+            <p>{{product.description}}</p>
+            <p>Sizes:</p>
+            <div>
+              <span *ngFor="let x of product.sizes">
+                <a [ngClass]="product.defaultSize == x ? 'selectedsizebutton' : 'sizebutton'"
+                   (click)="setdefault(product, x)" style="color:black">{{x}}</a>
+              </span>
+            </div>
+            <select *ngIf="product.sizes && product.sizes.length > 0 && checkmycart(product) == false">
+              <option *ngFor="let size of product.sizes" [value]="size">{{size}}</option>
+            </select>
+            <h3>${{product.price}}</h3>
+
+            <button (click)="addcart(product)" *ngIf="!checkmycart(product)">Add to Cart</button>
+            <div *ngIf="checkmycart(product)" style="width:100%; padding: 10px; border: thin solid white;">
+              <span style="padding: 3px; background: whitesmoke; color: black"
+                    (click)="minusqty(product)">-</span>
+              <span style="padding: 5px 20px;">{{getqty(product)}}</span>
+              <span style="padding: 3px; background: whitesmoke; color: black"
+                    (click)="addcart(product)">+</span>
+            </div>
+            <a class="viewBtn" href="/productview" style="background-color: white !important; padding-top: 10px !important; color: black !important; text-decoration: none;">View</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="col-md-2">
+      <h5>My Cart</h5>
+      <div *ngFor="let item of cartlist">
+        <p>{{item.title}} ({{item.quantity}}) {{item.size}} - ${{item.totalPrice}}</p>
+      </div>
+      <h5 class="totalTag">Total: ${{calculateTotalPrice()}}</h5>
+    </div> -->
+  </div>
+</div>

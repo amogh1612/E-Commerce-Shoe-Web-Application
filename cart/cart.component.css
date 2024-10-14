@@ -1,0 +1,158 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.left-column, .right-column {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.left-column {
+    width: 65%;
+}
+
+.right-column {
+    width: 30%;
+}
+
+.membership-banner {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.membership-banner p:first-child {
+    color: orange;
+    font-weight: bold;
+}
+
+.membership-banner a {
+    color: #000;
+    text-decoration: none;
+}
+
+.promo-banner {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #f8f8f8;
+}
+
+.bag {
+    margin-bottom: 20px;
+}
+
+.summary h3 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.promo-code {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.cost-details {
+    margin-bottom: 20px;
+}
+
+.cost-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.cost-row.total {
+    font-weight: bold;
+}
+
+.checkout-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ddd;
+    border: none;
+    cursor: not-allowed;
+    font-size: 16px;
+}
+
+
+.checkout-container {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.checkout-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.checkout-card h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.checkout-card form {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout-card label {
+    font-size: 14px;
+    color: #555;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.checkout-card input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.checkout-card button {
+    padding: 10px 16px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.checkout-card button:hover {
+    background-color: #0056b3;
+}
+
+#notification {
+    margin-top: 20px;
+    padding: 10px;
+    color: #fff;
+    background-color: #28a745;
+    border-radius: 4px;
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+

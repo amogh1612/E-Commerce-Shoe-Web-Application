@@ -1,0 +1,111 @@
+<div class="container">
+  <div *ngIf="filteredlist.length > 0" class="row">
+    <a class="nav-button previous" (click)="prev()">
+      <span class="icon">&#9664;</span>
+    </a>
+    <div class="image-container">
+      <img [src]="product.currentImage" />
+    </div>
+    <div class="product-details">
+      <h1>Featured</h1>
+      <p>{{product.description}}</p>
+      <button class="button1">View</button>
+      <button class="button2">Add to Cart</button>
+    </div>
+    <a class="nav-button next" (click)="next()">
+      <span class="icon">&#9654;</span>
+    </a>
+  </div>
+</div>
+
+<div class = "row2" style="padding-bottom:20px;padding-top:20px">
+  
+  <div class="col-12">
+    <h1 style="padding-left: 10%;">Products Catalog</h1>
+    <p style="padding-left: 10%;">hdkhjsd dkssdjhdaj dslldshdsjdkakj</p>
+
+    <div class="container">
+      <div class="category" style="width:25%; padding-left: 7.5%; padding-top: 20px; padding-right:5%">
+        <div class="icon athleticwear-icon"></div>
+        <h3>Athletic</h3>
+        <p>Lorem ipsum dolor sit amet nulla adipiscing elit. Nunc maximus, nec ut commodo.</p>
+        <a href="/athletic" class="learn-more">View <span>&#8594;</span></a>
+      </div>
+    
+      <div class="category" style="width:25%; padding-left: 5%; padding-top: 20px; padding-right:5%">
+        <div class="icon athleticwear-icon"></div>
+        <h3>Streetwear</h3>
+        <p>Lorem ipsum dolor sit amet nulla adipiscing elit. Nunc maximus, nec ut commodo.</p>
+        <a href="#" class="learn-more">View <span>&#8594;</span></a>
+      </div>
+  
+      <div class="category" style="width:25%; padding-left: 5%; padding-top: 20px; padding-right:7.5%">
+        <div class="icon athleticwear-icon"></div>
+        <h3>Luxury</h3>
+        <p>Lorem ipsum dolor sit amet nulla adipiscing elit. Nunc maximus, nec ut commodo.</p>
+        <a href="#" class="learn-more">View <span>&#8594;</span></a>
+      </div> 
+    </div>
+  </div>
+
+  
+</div>
+
+<div class = "row3" style="padding-bottom:20px;padding-top:20px">
+  <div class="col-12" style="padding-left: 10%;">
+    <h1>Trends</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat.</p>
+  </div>
+  <div class="trends-panel">
+    
+    <div class="stats">
+        <div class="stat">
+            <div class="number">150+</div>
+            <div class="label">Nike Shoes Sold</div>
+        </div>
+        <div class="stat">
+            <div class="number">95+</div>
+            <div class="label">Adidas Shoes Sold</div>
+        </div>
+        <div class="stat">
+            <div class="number">100+</div>
+            <div class="label">Basketball Shoes Sold</div>
+        </div>
+        <div class="stat">
+            <div class="number">50+</div>
+            <div class="label">Designer Shoes Sold</div>
+        </div>
+        <div class="stat">
+          <div class="number">0</div>
+          <div class="label">Sacai Shoes Sold</div>
+        </div>
+        <div class="stat">
+          <div class="number">0</div>
+          <div class="label">Formal Shoes Sold</div>
+        </div>
+    </div>
+    <div class="image-container">
+      <img src="assets/TrendsShoe.png" style="width:80%">
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  
+  <div class="footer-nav">
+      <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/news">News</a></li>
+          <li><a href="/products">Products</a></li>
+          <li><a href="/contact">Contact us</a></li>
+          <li><a href="/cart">Cart</a></li>
+      </ul>
+  </div>
+  <div class="footer-social">
+      <a href="#" class="social-link"><img src="" alt="Facebook"></a>
+      <a href="#" class="social-link"><img src="" alt="Instagram"></a>
+      <a href="#" class="social-link"><img src="" alt="LinkedIn"></a>
+      <a href="#" class="social-link"><img src="" alt="YouTube"></a>
+  </div>
+  <p class="footer-copy">Copyright © 2024 Website. All rights reserved.</p>
+</footer>

@@ -1,0 +1,183 @@
+/* General Button Styling */
+button {
+  border: 0px solid #000;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 30px;
+  background-color: #fff;
+  color: #000;
+  transition: all 0.3s ease;
+}
+
+/* Button Hover Effect */
+button:hover {
+  background-color: #FAF0DF;
+  color: #fff;
+}
+
+/* Specific Styling for Button 1 */
+.button1 {
+  font-weight: bold;
+  background-color: cornflowerblue;
+  color: white !important;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px auto;
+  max-width: 1200px;
+  padding: 20px;
+  background-color: whitesmoke;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Navigation Button Styling */
+.nav-button {
+  background-color: transparent;
+  border: none;
+  color: #333;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  transition: color 0.3s ease;
+}
+
+.nav-button:hover {
+  color: whitesmoke;
+}
+
+.nav-button .icon {
+  margin: 0;
+  font-size: 24px;
+}
+
+.image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container img {
+  width: 70%;
+  max-width: 100%;
+  height: auto;
+}
+
+.product-details {
+  flex: 1;
+  padding-left: 50px;
+  padding-top: 100px;
+}
+
+.trends-panel {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px auto;
+  max-width: 1200px;
+  padding: 20px;
+  background-color: whitesmoke;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 24px;
+  color: #333;
+}
+
+p {
+  color: #666;
+  font-size: 14px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  width: 50%;
+}
+
+.stat {
+  text-align: left;
+}
+
+.number {
+  font-size: 30px;
+  font-weight: bold;
+  color: #333;
+}
+
+.label {
+  font-size: 14px;
+  color: #666;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #f1f1f1;
+  font-family: Arial, sans-serif;
+}
+
+.footer-logo img {
+  width: 50px;
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.footer-nav a {
+  text-decoration: none;
+  color: #333;
+}
+
+.footer-social {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-social .social-link img {
+  width: 20px;
+}
+
+.footer-copy {
+  flex-basis: 100%;
+  text-align: center;
+  margin-top: 20px;
+  color: #666;
+}
+
+@media (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+  }
+
+  .footer-nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+}

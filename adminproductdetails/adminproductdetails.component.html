@@ -1,0 +1,94 @@
+<div class="checkout-container">
+    <div class="left-half">
+        <div>
+            <h3>Product Table</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>title</th>
+                            <th>description</th>
+                            <th>price</th>
+                            <th>stock</th>
+                            <th>brand</th>
+                            <th>category</th>
+                            <th>images</th>
+                            <th>sizes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let product of Productlist">
+                            <td (click)="selectproduct(product)">{{ product.id }}</td>
+                            <td>{{ product.title }}</td>
+                            <td>{{ product.description }}</td>
+                            <td>{{ product.price }}</td>
+                            <td>{{ product.stock }}</td>
+                            <td>{{ product.brand }}</td>
+                            <td>{{ product.category }}</td>
+                            <td>{{ product.images }}</td>
+                            <td>{{ product.sizes }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="right-half">
+        <div class="checkout-card">
+            <h3>Enter Product Information</h3>
+            <form id="checkout-form" [formGroup]="productform">
+                <label for="title">Title</label>
+                <input [(ngModel)]="product.title" type="text" id="title" name="title" required formControlName="title">
+
+                <label for="description">Description</label>
+                <input [(ngModel)]="product.description" type="text" id="description" name="description" required formControlName="description">
+
+                <label for="price">Price</label>
+                <input [(ngModel)]="product.price" type="number" id="price" name="price" required formControlName="price">
+
+                <label for="discountPercentage">Discount Percentage</label>
+                <input [(ngModel)]="product.discountPercentage" type="number" id="discountPercentage" name="discountPercentage" required formControlName="discountPercentage">
+
+                <label for="rating">Rating</label>
+                <input [(ngModel)]="product.rating" type="number" id="rating" name="rating" required formControlName="rating">
+
+                <label for="stock">Stock</label>
+                <input [(ngModel)]="product.stock" type="number" id="stock" name="stock" required formControlName="stock">
+
+                <label for="brand">Brand</label>
+                <input [(ngModel)]="product.brand" type="text" id="brand" name="brand" required formControlName="brand">
+
+                <label for="category">Category</label>
+                <input [(ngModel)]="product.category" type="text" id="category" name="category" required formControlName="category">
+
+                <label for="thumbnail">Thumbnail</label>
+                <input [(ngModel)]="product.thumbnail" type="text" id="thumbnail" name="thumbnail" required formControlName="thumbnail">
+
+                <label for="images">Images</label>
+                <textarea [(ngModel)]="product.images" id="images" name="images" required formControlName="images"></textarea>
+
+                <label for="sizes">Sizes</label>
+                <textarea [(ngModel)]="product.sizes" id="sizes" name="sizes" required formControlName="sizes"></textarea>
+
+                <label for="defaultsize">Default Size</label>
+                <input [(ngModel)]="product.defaultsize" type="text" id="defaultsize" name="defaultsize" required formControlName="defaultsize">
+
+                <label for="currentImage">Current Image</label>
+                <input [(ngModel)]="product.currentImage" type="text" id="currentImage" name="currentImage" required formControlName="currentImage">
+
+                <label for="featured">Featured</label>
+                <select [(ngModel)]="product.featured" id="featured" name="featured" required formControlName="featured">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+
+                <p *ngIf="!productform.valid">Please fill all parts</p>
+                <button (click)="addproduct()" [disabled]="!productform.valid" *ngIf="!editFlag">Add Product</button>
+                <button (click)="updateproduct()" [disabled]="!productform.valid" *ngIf="editFlag">Update Product</button>
+                <button (click)="deleteproduct()" [disabled]="!productform.valid" *ngIf="editFlag">Delete Product</button>
+            </form>
+        </div>
+    </div>
+</div>

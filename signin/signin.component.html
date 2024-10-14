@@ -1,0 +1,20 @@
+<div class="signin-container">
+    <div class="signin-card" style="margin-top: 10%">
+        <h3>Sign In</h3>
+        <form [formGroup]="userform">
+            <label for="email">Email</label>
+            <input [(ngModel)]="user.email" type="email" id="email" name="email" required formControlName="email">
+
+
+            <label for="password">Password</label>
+            <input [(ngModel)] = "user.password" type="password" id="password" name="password" required formControlName="password">
+
+
+            <button (click)="signin(user)" [disabled]="!userform.valid">Sign In</button>
+        </form>
+
+        <p *ngIf="!userform.valid">Please fill all parts</p>
+
+        <p>Don't have an account? <a href="/signup">Sign up</a></p>
+    </div>
+</div>
